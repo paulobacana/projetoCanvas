@@ -1,0 +1,1 @@
+//aqui ficam funções relacionadas a desenho no canvas

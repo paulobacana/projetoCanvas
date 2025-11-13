@@ -1,0 +1,1 @@
+//trata os eventos do canvas/mouse
