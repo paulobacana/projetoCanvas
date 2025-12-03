@@ -8,7 +8,7 @@ const drawingStore = useDrawingStore();
 const selectedColor = ref('black');
 const brushSize = ref(5); // tamanho inicial do pincel
 
-// Função para atualizar o cursor da borracha
+// atualiza o cursor da borracha
 function updateEraserCursor() {
     const canvas = document.querySelector('canvas');
     if (!canvas) return;
@@ -45,11 +45,10 @@ function updateBrushSize(event) {
     }
 }
 
-// Observa mudanças no modo e tamanho
 watch(() => drawingStore.mode, updateEraserCursor);
 watch(brushSize, updateEraserCursor);
 
-// Inicializa o cursor quando o componente é montado
+// inicializa o cursor quando o componente é montado
 onMounted(() => {
     updateEraserCursor();
 });
@@ -75,32 +74,28 @@ onMounted(() => {
                 </button>
             </div>
 
-            <!-- Barra de cores ao lado -->
+            <!--barra -->
             <div class="flex flex-wrap md:flex-nowrap items-center gap-1 md:gap-3 bg-white rounded-full px-2 py-1">
-                <!-- Preta -->
+
                 <button @click="selectColor('black', '#000000')" :class="['p-1', 'rounded-full', { 'ring-2 ring-offset-1 md:ring-offset-2 ring-blue-500': selectedColor === 'black' }]">
                     <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-black block"></span>
                 </button>
 
-                <!-- Branca (com borda) -->
                 <button @click="selectColor('white', '#FFFFFF')" :class="['p-1', 'rounded-full', { 'ring-2 ring-offset-1 md:ring-offset-2 ring-blue-500': selectedColor === 'white' }]">
                     <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white border border-gray-300 block"></span>
                 </button>
 
-                <!-- Azul -->
                 <button @click="selectColor('blue', '#2563EB')" :class="['p-1', 'rounded-full', { 'ring-2 ring-offset-1 md:ring-offset-2 ring-blue-500': selectedColor === 'blue' }]">
                     <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-600 block"></span>
                 </button>
 
-                <!-- Vermelha -->
                 <button @click="selectColor('red', '#DC2626')" :class="['p-1', 'rounded-full', { 'ring-2 ring-offset-1 md:ring-offset-2 ring-red-500': selectedColor === 'red' }]">
                     <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-red-600 block"></span>
                 </button>
 
-                <!-- Separador vertical, visível apenas em MD+ -->
+                <!-- separador vertical-->
                 <div class="hidden md:block w-px h-6 md:h-8 bg-gray-200"></div>
 
-                <!-- Slider para tamanho do pincel -->
                 <div class="flex items-center gap-1 md:gap-2">
                     <input 
                         type="range" 
