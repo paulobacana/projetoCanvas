@@ -1,4 +1,4 @@
-//Onde fica estado compartilhado (cor do pincel, tamanho, usuário)
+
 
 import { defineStore } from 'pinia'
 
